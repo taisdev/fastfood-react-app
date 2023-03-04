@@ -10,6 +10,7 @@
 
 # production
 /build
+.editorconfig
 
 # misc
 .DS_Store
