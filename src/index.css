@@ -1,9 +1,10 @@
 
 
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;700&display=swap');
 
+/* font-family: 'Climate Crisis', cursive;*/
 :root {
-  --font-family: "Poppins", sans-serif;
+  --font-family: 'Montserrat', sans-serif;
   --dark-blue: #0a1930;
   --light-blue: #1f93ff;
 
@@ -17,7 +18,7 @@
   --color-purple: #BA68C8;
   --color-orange: #ff7722;
 
-  --color-primary: #007bff;
+  --color-primary: #DC0404;
   --color-success: #28a745;
 }
 
@@ -448,10 +449,6 @@ a {
   transition: all 0.2s;
 }
 
-a:hover {
-  color: var(--color-purple);
-  font-size: 1.5rem;
-}
 
 .--align-center {
   display: flex;
