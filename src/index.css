@@ -318,7 +318,10 @@ p {
 
 .--btn-primary {
   color: #fff;
-  background: #007bff;
+  background: var(--color-primary);
+  box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+  border-radius: 10px;
+  padding: 1rem;
 }
 .--btn-secondary {
   color: #fff;

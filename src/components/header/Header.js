@@ -1,13 +1,16 @@
 import React, { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import styles from "./Header.module.scss";
 import logoImg from "../../assets/logo.png";
 import logoBranca from "../../assets/logoBranca.png";
 import { FaShoppingCart, FaTimes } from "react-icons/fa";
 import { HiOutlineMenuAlt3 } from "react-icons/hi";
+import { auth } from "../../firebase/config";
+import { signOut } from "firebase/auth";
 
 const Header = () => {
     const [showMenu, setShowMenu] = useState(false);
+    const navigate = useNavigate();
 
     const toggleMenu = () => {
         setShowMenu(!showMenu);
@@ -15,6 +18,14 @@ const Header = () => {
 
     const hideMenu = () => {
         setShowMenu(false);
+    };
+
+    const logoutUser = () => {
+        signOut(auth).then(() => {
+            navigate("/");
+          }).catch((error) => {
+            console.log(error.message);
+          });
     };
 
     const cart = (
@@ -30,7 +41,7 @@ const Header = () => {
     const navLink = ({ isActive }) => (isActive ? `${styles.active}` : "");
 
     return (
-        <header>
+        <header className={styles.fixed}>
             <div className={styles.header}>
                 <Link to="/">
                     <img src={logoImg} alt="logo" />
@@ -65,6 +76,11 @@ const Header = () => {
                         <span className={styles.links}>
                             <NavLink to="/login" className={navLink}>
                                 entrar
+                            </NavLink>
+                        </span>
+                        <span className={styles.links}>
+                            <NavLink to="/login" className={navLink} onClick={logoutUser}>
+                                sair
                             </NavLink>
                         </span>
                         <span className={styles.links}>{cart}</span>
